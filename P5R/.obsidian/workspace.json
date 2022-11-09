@@ -1,0 +1,137 @@
+{
+  "main": {
+    "id": "fd5cbf1943459bf6",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ec5e07ef8841b24",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2913db8964a42cd2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d8e6c2e09cd05a6e",
+    "type": "split",
+    "children": [
+      {
+        "id": "e929dc7d6061f044",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f5ebedb8776a0b7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ba056b457be3e4b6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f579fa83d863b8ce",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dfda80a0a1ab8957",
+    "type": "split",
+    "children": [
+      {
+        "id": "ae0fcbf262dbfc63",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40942d648f915984",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bb686ff76dbd3312",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0c4d55a8ed20ee59",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "dfb8a18c5c7ce400",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "2913db8964a42cd2",
+  "lastOpenFiles": [
+    "skills/全部.md",
+    "resource/宝魔合成.jpg",
+    "resource/阿尔卡纳合成.jpg"
+  ]
+}
