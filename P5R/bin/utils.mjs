@@ -1,6 +1,7 @@
-export default function findFilesSync(startPath, reg) {
+import path from 'path';
+
+export function findFilesSync(startPath, reg) {
   let result = [];
-  startPath = path.resolve(__dirname, startPath);
 
   function finder(_path) {
     let files = fs.readdirSync(_path);
@@ -20,3 +21,11 @@ export default function findFilesSync(startPath, reg) {
   finder(startPath);
   return result;
 }
+
+export function resolve(url) {
+  return path.resolve(__dirname, url);
+}
+
+export const options = {
+  encoding: 'utf8',
+};

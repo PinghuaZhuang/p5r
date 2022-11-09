@@ -2,11 +2,17 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "demo",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "scripts": {
+    "build": "vitdoc build",
     "dev": "vitdoc",
-    "build": "vitdoc build"
+    "sort": "sort-package-json package.json"
   },
   "dependencies": {
+    "antd": "^4.24.1",
     "lodash": "^4.17.11",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
@@ -14,11 +20,10 @@
   "devDependencies": {
     "@types/lodash": "^4.14.116",
     "@types/react-dom": "^16.8.0",
+    "jsonfile": "^6.1.0",
     "sass": "^1.54.5",
-    "vitdoc": "^1.0.7"
-  },
-  "sideEffects": [
-    "*.css",
-    "*.scss"
-  ]
+    "sort-package-json": "^1.55.0",
+    "vitdoc": "^1.0.7",
+    "zx": "^7.1.1"
+  }
 }
