@@ -1,3 +1,3 @@
-# Vitdoc Starter
+# P5R
 
-You can use this project to quickly initialize a [vitdoc](https://vitdocjs.github.io/)
+![P5R](./public/bg.jpg)
