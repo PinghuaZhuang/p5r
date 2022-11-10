@@ -89,7 +89,7 @@ await fs.writeFile(
   resolve(`../../docs/全部技能.md`),
   `---
 title: 全部技能
-order: 1
+order: 100
 ---
 
 # 全部技能
@@ -141,7 +141,7 @@ await fs.writeFile(
   resolve(`../../docs/特性.md`),
   `---
 title: 特性
-order: 2
+order: 300
 ---
 
 # 特性

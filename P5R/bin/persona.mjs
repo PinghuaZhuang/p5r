@@ -42,6 +42,7 @@ async function toJson(fileUrl) {
   // 装换为 markdown 表格数据
   const markdownContent = content
     .replace(/DLC\s+/g, 'DLC,')
+    .replace(/（宝魔）\s+/g, '（宝魔）')
     .replace(/\n\s*\n/g, '\n')
     .replace(/[^\S\r\n]{2}(\S)/g, ',$1')
     .replace(/\s*\n,/g, ',')
@@ -72,6 +73,7 @@ async function toJson(fileUrl) {
 
     // 替换成锚点
     const replaceSkill = (target, skill, k, routePath = skillPath) => {
+      if (target == null) return '';
       return target.replace(
         createReg(k),
         `$1$4[${k}](${routePath
@@ -87,7 +89,7 @@ async function toJson(fileUrl) {
       });
       persona.skills = persona.skills.map((o) => {
         return replaceSkill(o, skill, skill.name);
-      });
+      }).filter(o => o);
     }
     // 替换特性
     for (const k in attributes) {
@@ -169,7 +171,7 @@ await fs.writeFile(
   resolve(`../../docs/全部面具.md`),
   `---
 title: 全部面具
-order: 0
+order: 200
 ---
 
 # 全部面具

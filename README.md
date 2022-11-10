@@ -1,5 +1,7 @@
 # P5R
 
+[![deploy](https://github.com/PinghuaZhuang/p5r/actions/workflows/deploy.yml/badge.svg)](https://github.com/PinghuaZhuang/p5r/actions/workflows/deploy.yml)
+
 女神异闻录 5 皇家版 ペルソナ５ ザ・ロイヤル
 
 ![bg](./public/assets/bg.jpg)

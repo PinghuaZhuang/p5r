@@ -3,7 +3,9 @@
   "name": "p5r",
   "scripts": {
     "start": "dumi dev",
-    "build": "dumi build",
+    "sort": "sort-package-json package.json",
+    "generate": "zx ./P5R/bin/persona.mjs & zx ./P5R/bin/skills.mjs",
+    "build": "yarn generate & dumi build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
   },
   "main": "dist/index.js",
@@ -24,7 +26,6 @@
     "dumi": "^1.0.14",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
-    "sort": "sort-package-json package.json",
     "zx": "^7.1.1",
     "yorkie": "^2.0.0"
   }
