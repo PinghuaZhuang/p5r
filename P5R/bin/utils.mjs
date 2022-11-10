@@ -29,3 +29,13 @@ export function resolve(url) {
 export const options = {
   encoding: 'utf8',
 };
+
+export function getPersonaContent(info, template, keys) {
+  let content = template;
+  [...keys, 'skills'].forEach((k) => {
+    content = content.replaceAll(`{${k}}`, info[k] ?? '-');
+  });
+  return content + '\n';
+}
+
+export const personaPath = `/personas/{group}#{name}`;

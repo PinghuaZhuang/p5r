@@ -1,17 +1,18 @@
 #!/usr/bin/env zx
-import { findFilesSync, resolve, options } from './utils.mjs';
+import { findFilesSync, resolve, options, getPersonaContent } from './utils.mjs';
 
 let id = 0;
 
 const allPersona = {};
+const allPersonaArr = [];
 
 const personaTemplate = fs.readFileSync(resolve('../template/personas.md'), options);
 
 // |LV|名称|技能（习得等级）|特性|物|枪|火|冰|电|风|念|核|祝|咒|电刑|警报电刑|装备类型|技能|
 const keys =
-'level name firstSkill characteristic |物|枪|火|冰|电|风|念|核|祝|咒| electrocute alarmlectrocute equipType otherSkills'.split(
-  /[\s\|]+/,
-);
+  'level name firstSkill characteristic |物|枪|火|冰|电|风|念|核|祝|咒| electrocute alarmlectrocute equipType otherSkills'.split(
+    /[\s\|]+/,
+  );
 
 async function toJson(fileUrl) {
   const content = fs.readFileSync(fileUrl, options);
@@ -30,7 +31,7 @@ async function toJson(fileUrl) {
     .replace(/([^\||\s])$/gm, '$1|')
     .replace(/\|$/m, '|技能|\n|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|');
 
-  // await fs.writeFile(resolve(`../docs/${path.basename(fileUrl, path.extname(fileUrl))}.md`), markdownContent, options);
+  // await fs.writeFile(resolve(`../${path.basename(fileUrl, path.extname(fileUrl))}.md`), markdownContent, options);
 
   // 装换为 json 数据
   const personasStr = markdownContent
@@ -56,6 +57,7 @@ async function toJson(fileUrl) {
     }
     allPersona[persona.name] = persona;
     // allPersona[persona.id] = persona;
+    allPersonaArr.push(persona);
     _personas.push(persona);
     return _personas;
   }, []);
@@ -71,32 +73,36 @@ async function toJson(fileUrl) {
 await Promise.all(
   findFilesSync(resolve('../persona/text')).map(async (file) => {
     const { group, personas } = await toJson(file);
-    console.log(`parse ${path.basename(file)} success.`, group, personas.map(o => o.name).join(','));
+    console.log(`parse ${path.basename(file)} success.`, group, personas.map((o) => o.name).join(','));
 
-    const dir = resolve(`../../src/docs/personas`);
+    const dir = resolve(`../../docs/personas`);
     if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir)
+      fs.mkdirSync(dir);
     }
 
     // 按照类型生成 md
-    await fs.writeFile(path.join(dir, `${group}.md`), `---
+    await fs.writeFile(
+      path.join(dir, `${group}.md`),
+      `---
 title: ${group}
-group:
-  title: personas
-  order: 0
+order: 99
 ---
 
-${personas.reduce((result, cur) => result + getPersonaContent(cur), '')}
-    `);
+${personas.reduce((result, cur) => result + getPersonaContent(cur, personaTemplate, keys), '')}
+    `,
+    );
   }),
 );
 
 await fs.writeFile(resolve(`../../public/personaInfo/personas.json`), JSON.stringify(allPersona), options);
 
-function getPersonaContent(info) {
-  let content = personaTemplate;
-  [...keys, 'skills'].forEach((k) => {
-    content = content.replaceAll(`{${k}}`, info[k] ?? '-');
-  });
-  return content + '\n';
-}
+// 按照类型生成 md
+await fs.writeFile(
+  resolve(`../../docs/全部面具.md`),
+  `---
+title: 全部面具
+order: 0
+---
+
+${allPersonaArr.reduce((result, cur) => result + getPersonaContent(cur, personaTemplate, keys), '')}`,
+);
