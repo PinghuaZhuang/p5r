@@ -30,7 +30,7 @@ async function toJson(fileUrl) {
     .replace(/([^\||\s])$/gm, '$1|')
     .replace(/\|$/m, '|技能|\n|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|');
 
-  await fs.writeFile(resolve(`../docs/${path.basename(fileUrl, path.extname(fileUrl))}.md`), markdownContent, options);
+  // await fs.writeFile(resolve(`../docs/${path.basename(fileUrl, path.extname(fileUrl))}.md`), markdownContent, options);
 
   // 装换为 json 数据
   const personasStr = markdownContent
@@ -73,8 +73,21 @@ await Promise.all(
     const { group, personas } = await toJson(file);
     console.log(`parse ${path.basename(file)} success.`, group, personas.map(o => o.name).join(','));
 
+    const dir = resolve(`../../src/docs/personas`);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir)
+    }
+
     // 按照类型生成 md
-    await fs.writeFile(resolve(`../../src/docs/personas/${group}.md`), personas.reduce((result, cur) => result + getPersonaContent(cur), ''));
+    await fs.writeFile(path.join(dir, `${group}.md`), `---
+title: ${group}
+group:
+  title: personas
+  order: 0
+---
+
+${personas.reduce((result, cur) => result + getPersonaContent(cur), '')}
+    `);
   }),
 );
 
