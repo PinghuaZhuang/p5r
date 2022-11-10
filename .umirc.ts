@@ -7,4 +7,5 @@ export default defineConfig({
   locales: [['zh-CN', '中文']],
   publicPath: process.env.NODE_ENV === 'production' ? '/p5r/' : '/',
   base: process.env.NODE_ENV === 'production' ? '/p5r/' : '/',
+  exportStatic: {},
 });
