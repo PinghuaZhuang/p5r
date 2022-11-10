@@ -5,5 +5,6 @@ export default defineConfig({
   title: 'P5R',
   mode: 'doc',
   locales: [['zh-CN', '中文']],
-  base: process.env.NODE_ENV === 'production' ? '/p5r' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/p5r/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/p5r/' : '/',
 });
