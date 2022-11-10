@@ -137,16 +137,6 @@ let attributeMd = allAttribute.reduce(
   '',
 );
 
-for (const k in personasMap) {
-  const persona = personasMap[k];
-  attributeMd = attributeMd.replace(
-    new RegExp(`([^\\u4e00-\\u9fa5])?${k}([^\\u4e00-\\u9fa5])`, 'g'),
-    `$1[${k}](${personaPath
-      .replace(`{name}`, persona.name)
-      .replace(`{group}`, persona.group)})$2`,
-  );
-}
-
 await fs.writeFile(
   resolve(`../../docs/特性.md`),
   `---

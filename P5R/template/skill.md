@@ -1,4 +1,4 @@
-### {name} {attribute}
+### {name}
 
 {des}
 
