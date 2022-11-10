@@ -1,21 +1,17 @@
-# dumi app
+# P5R
 
-## Getting Started
+女神异闻录 5 皇家版 ペルソナ５ ザ・ロイヤル
 
-Install dependencies,
+![bg](./public/assets/bg.jpg)
 
-```bash
-$ npm i
-```
+## 资料
 
-Start the dev server,
+- [面具信息.xlsx](https://pinghuazhuang.github.io/p5r/P5R人格面具.xlsx)
 
-```bash
-$ npm start
-```
+- [宝魔合成.jpg](https://pinghuazhuang.github.io/p5r/宝魔合成.jpg)
 
-Build site app,
+- [阿尔卡纳合成.jpg](https://pinghuazhuang.github.io/p5r/阿尔卡纳合成.jpg)
 
-```bash
-$ npm run build
-```
+## Technical
+
+![Technical](./public/assets/image-20221110201618648.png)

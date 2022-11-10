@@ -166,7 +166,7 @@ await fs.writeFile(
 /* 按照类型生成 md */
 /* ================================================= */
 await fs.writeFile(
-  resolve(`../../docs/index.md`),
+  resolve(`../../docs/全部面具.md`),
   `---
 title: 全部面具
 order: 0
