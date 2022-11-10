@@ -1,12 +1,17 @@
 #!/usr/bin/env zx
-import { findFilesSync, resolve, options, getPersonaContent } from './utils.mjs';
+import { findFilesSync, resolve, options, getPersonaContent, skillPath, createReg } from './utils.mjs';
 
 let id = 0;
-
 const allPersona = {};
 const allPersonaArr = [];
 
 const personaTemplate = fs.readFileSync(resolve('../template/personas.md'), options);
+
+const skillsJson = fs.readFileSync(
+  resolve('../../public/skills.json'),
+  options,
+);
+const skills = JSON.parse(skillsJson);
 
 // |LV|名称|技能（习得等级）|特性|物|枪|火|冰|电|风|念|核|祝|咒|电刑|警报电刑|装备类型|技能|
 const keys =
@@ -49,6 +54,26 @@ async function toJson(fileUrl) {
     persona.id = id++;
     persona.group = group;
 
+    // 替换成锚点
+    const replaceSkill = (target, skill, k) => {
+      return target.replace(
+        createReg(k),
+        `$1$4[${k}](${skillPath
+          .replace(`{name}`, skill.name)
+          .replace(`{group}`, skill.attribute)})$2$3`,
+      )
+    }
+    for (const k in skills) {
+      const skill = skills[k];
+      ['firstSkill', 'otherSkills'].forEach((o) => {
+        if (persona[o] == null) return;
+        persona[o] = replaceSkill(persona[o], skill, skill.name);
+      });
+      persona.skills = persona.skills.map((o) => {
+        return replaceSkill(o, skill, skill.name);
+      });
+    }
+
     if (persona.name == null) {
       console.warn(`有面具的数据错误.`);
     }
@@ -70,6 +95,8 @@ async function toJson(fileUrl) {
   };
 }
 
+/* 生成JSON */
+/* ================================================= */
 await Promise.all(
   findFilesSync(resolve('../persona/text')).map(async (file) => {
     const { group, personas } = await toJson(file);
@@ -88,21 +115,25 @@ title: ${group}
 order: 99
 ---
 
+# ${group}
+
 ${personas.reduce((result, cur) => result + getPersonaContent(cur, personaTemplate, keys), '')}
     `,
     );
   }),
 );
-
 await fs.writeFile(resolve(`../../public/personaInfo/personas.json`), JSON.stringify(allPersona), options);
 
-// 按照类型生成 md
+/* 按照类型生成 md */
+/* ================================================= */
 await fs.writeFile(
-  resolve(`../../docs/全部面具.md`),
+  resolve(`../../docs/index.md`),
   `---
 title: 全部面具
 order: 0
 ---
+
+# 全部面具
 
 ${allPersonaArr.reduce((result, cur) => result + getPersonaContent(cur, personaTemplate, keys), '')}`,
 );

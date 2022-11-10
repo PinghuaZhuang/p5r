@@ -33,9 +33,26 @@ export const options = {
 export function getPersonaContent(info, template, keys) {
   let content = template;
   [...keys, 'skills'].forEach((k) => {
-    content = content.replaceAll(`{${k}}`, info[k] ?? '-');
+    content = content.replaceAll(
+      `{${k}}`,
+      Array.isArray(info[k]) ? info[k].join(', ') : info[k] ?? '-',
+    );
   });
   return content + '\n';
 }
 
 export const personaPath = `/personas/{group}#{name}`;
+export const skillPath = `/skills/{group}#{name}`;
+
+export function obj2Array(obj) {
+  const result = [];
+  for (const k in obj) {
+    result.push(obj[k]);
+  }
+  return result;
+}
+
+export function createReg(k) {
+  const regCn = `[^\\u4e00-\\u9fa5]`;
+  return new RegExp(`(${regCn})${k}(${regCn})|^${k}(${regCn})|(${regCn})${k}$|^${k}$`, 'gm');
+}
