@@ -69,6 +69,11 @@ await fs.writeFile(
   JSON.stringify(allSkills),
   options,
 );
+await fs.writeFile(
+  resolve(`../../public/attribute.json`),
+  JSON.stringify(allAttribute),
+  options,
+);
 console.log(`parse skills success.`);
 
 /* 面具 => 锚点 */

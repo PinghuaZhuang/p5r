@@ -43,6 +43,7 @@ export function getPersonaContent(info, template, keys) {
 
 export const personaPath = `/personas/{group}#{name}`;
 export const skillPath = `/skills/{group}#{name}`;
+export const attributePath = `/特性#{name}`;
 
 export function obj2Array(obj) {
   const result = [];
