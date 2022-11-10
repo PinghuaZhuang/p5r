@@ -30,23 +30,24 @@ export function Title(props: IProps) {
   const { maxWidth = 1000, isMobile } = theme;
 
   return (
-    <div className={`cms-one-stop-title-scope ismobile-${!!isMobile}`} style={{ maxWidth }}>
-      <div className="cms-one-stop-title-container">
-        <img src="https://img.alicdn.com/tfs/TB1Yu.Rnhn1gK0jSZKPXXXvUXXa-25-20.svg" alt="" />
-        <h2>{title}</h2>
-        <img src="https://img.alicdn.com/tfs/TB1MvMSnkL0gK0jSZFAXXcA9pXa-25-20.svg" alt="" />
-      </div>
-      {subTitle && (
-        <div className="cms-sub-title">
-          <span
-            dangerouslySetInnerHTML={{
-              // @ts-ignore
-              __html: subTitle.replace('\\n', '\n'),
-            }}
-          />
-        </div>
-      )}
-    </div>
+    <div>11</div>
+    // <div className={`cms-one-stop-title-scope ismobile-${!!isMobile}`} style={{ maxWidth }}>
+    //   <div className="cms-one-stop-title-container">
+    //     <img src="https://img.alicdn.com/tfs/TB1Yu.Rnhn1gK0jSZKPXXXvUXXa-25-20.svg" alt="" />
+    //     <h2>{title}</h2>
+    //     <img src="https://img.alicdn.com/tfs/TB1MvMSnkL0gK0jSZFAXXcA9pXa-25-20.svg" alt="" />
+    //   </div>
+    //   {subTitle && (
+    //     <div className="cms-sub-title">
+    //       <span
+    //         dangerouslySetInnerHTML={{
+    //           // @ts-ignore
+    //           __html: subTitle.replace('\\n', '\n'),
+    //         }}
+    //       />
+    //     </div>
+    //   )}
+    // </div>
   );
 }
 export default Title;

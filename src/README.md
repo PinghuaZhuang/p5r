@@ -1,6 +1,7 @@
 ---
-title: Welcome
+title: Welcome123
 order: 0
+showComponentBlock: 12
 ---
 
 ## Quick Start
@@ -13,7 +14,8 @@ You can modify the `markdown` code like writing a document to view your componen
 
 ---
 
-#### Welcome to use [**Vitdoc**](https://vitdocjs.github.io)
+
+## Welcome to use222 [**Vitdoc**](https://vitdocjs.github.io)
 
 ```tsx
 import { Title } from '.';
@@ -38,10 +40,4 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
-```
-
-```tsx
-import { IProps } from "./title/index.tsx.type";
-
-renderType$(IProps, mountNode);
 ```

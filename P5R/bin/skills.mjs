@@ -14,7 +14,7 @@ const keys = 'name attribute deplete des get skillCard remark no'.split(/[\s\|]+
 
 const allSkills = allSkillsArr.reduce((skills, cur) => {
   const skill = cur.split('|').reduce((map, o, index) => {
-    map[keys[index]] = o;
+    map[keys[index]] = o.trim();
     return map;
   }, {});
   skills.push(skill);
