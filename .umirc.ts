@@ -10,10 +10,11 @@ export default defineConfig({
   publicPath,
   base: publicPath,
   exportStatic: {},
+  logo: `${publicPath}assets/logo.png`,
   links: [
     {
       rel: 'stylesheet',
-      href: '/global.css',
+      href: `${publicPath}global.css`,
     },
   ],
 });
