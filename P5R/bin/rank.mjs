@@ -36,6 +36,7 @@ for (const k in personasMap) {
 
 for (const k in skills) {
   const skill = skills[k];
+  if (skill.name === '赛') continue;
   geminiMd = geminiMd.replace(
     new RegExp(skill.name, 'g'),
     `[${skill.name}](${skillPath
