@@ -23,10 +23,14 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.13.5",
     "dumi": "^1.0.14",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
-    "zx": "^7.1.1",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "zx": "^7.1.1"
+  },
+  "dependencies": {
+    "antd": "^4.24.2"
   }
 }

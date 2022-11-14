@@ -17,4 +17,15 @@ export default defineConfig({
       href: `${publicPath}global.css`,
     },
   ],
+  extraBabelPlugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd',
+    ],
+  ],
 });
