@@ -17,6 +17,11 @@ export default defineConfig({
       href: `${publicPath}global.css`,
     },
   ],
+  scripts: [
+    {
+      src: `${publicPath}autoScroll.js`,
+    },
+  ],
   extraBabelPlugins: [
     [
       'babel-plugin-import',
@@ -28,4 +33,5 @@ export default defineConfig({
       'antd',
     ],
   ],
+  // plugins: ['./plugins/autoScroll.ts'],
 });
