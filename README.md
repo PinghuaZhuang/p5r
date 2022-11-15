@@ -4,7 +4,7 @@
 
 女神异闻录 5 皇家版 ペルソナ５ ザ・ロイヤル
 
-![bg](./public/assets/bg.jpg)
+![bg](https://pinghuazhuang.github.io/p5r/assets/bg.jpg)
 
 ## 资料
 
@@ -16,4 +16,4 @@
 
 ## Technical
 
-![Technical](./public/assets/image-20221110201618648.png)
+![Technical](https://pinghuazhuang.github.io/p5r/assets/image-20221110201618648.png)
