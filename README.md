@@ -14,6 +14,3 @@
 
 - [阿尔卡纳合成.jpg](https://pinghuazhuang.github.io/p5r/阿尔卡纳合成.jpg)
 
-## Technical
-
-![Technical](https://pinghuazhuang.github.io/p5r/assets/image-20221110201618648.png)
